@@ -1,4 +1,4 @@
-# 🚀 Md. Zisan Ul Haque — Premium Portfolio
+# 🚀 Md. Zisan Ul Haque — Full-Stack Developer
 
 <p align="center">
   <b>A modern, responsive, and animated developer portfolio built with the latest web technologies.</b>
