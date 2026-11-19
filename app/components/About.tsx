@@ -1,51 +1,54 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera, Code2, Dumbbell, BookOpen } from "lucide-react";
+import { Terminal, Code2, Cpu, Trophy } from "lucide-react";
 import { profile } from "../data/profile";
 import SectionHeading from "./SectionHeading";
 
-const interests = [
-  { Icon: Code2, label: "Open-source" },
-  { Icon: Dumbbell, label: "Badminton" },
-  { Icon: Camera, label: "Street photography" },
-  { Icon: BookOpen, label: "Sci-fi novels" },
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const engineeringHighlights = [
+  { Icon: Code2, title: "Clean Code & Types", desc: "Strict TypeScript, modular components, and maintainable schemas." },
+  { Icon: Cpu, title: "Scalable Backends", desc: "PostgreSQL, Prisma ORM, REST microservices, and indexing." },
+  { Icon: Terminal, title: "Linux & Docker", desc: "DevOps workflows, containerization, and modern CI/CD deployment." },
+  { Icon: Trophy, title: "Hackathon Competitor", desc: "Runner-up awards in high-intensity software development hackathons." },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="section-pad relative">
-      <div className="mx-auto max-w-7xl px-4">
+    <section id="about" className="section-pad relative border-b border-zinc-200/80 bg-[#faf9f6]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="About Me"
-          title="Building modern web experiences with purpose."
-          subtitle="I create fast, scalable, and user-focused applications by combining thoughtful design with clean, maintainable code."
+          eyebrow="Engineering Philosophy"
+          title="Bridging thoughtful architecture with production execution."
+          subtitle="I focus on writing clean, self-documenting code and designing systems that remain performant and dependable as user loads grow."
         />
 
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {/* Main bio card */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="glass rounded-3xl p-7 lg:col-span-2"
+            transition={{ duration: 0.6, ease }}
+            className="rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm sm:p-9 lg:col-span-2"
           >
-            <div className="space-y-4 text-base leading-relaxed text-ink-200/90">
+            <div className="space-y-4 text-base leading-relaxed text-zinc-600">
               {profile.about.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-zinc-100 pt-8 sm:grid-cols-4">
               {profile.stats.map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-center"
+                  className="rounded-2xl border border-zinc-200/80 bg-zinc-50 p-4 text-center transition-colors hover:border-zinc-300"
                 >
-                  <div className="font-display text-2xl font-semibold text-gradient">
+                  <div className="font-display text-2xl font-black text-[#09090b]">
                     {s.value}
                   </div>
-                  <div className="mt-1 text-xs uppercase tracking-wider text-ink-300">
+                  <div className="mt-1 font-mono text-[10px] font-bold uppercase tracking-wider text-zinc-500">
                     {s.label}
                   </div>
                 </div>
@@ -53,32 +56,47 @@ export default function About() {
             </div>
           </motion.div>
 
+          {/* Core Strengths card */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="glass rounded-3xl p-7"
+            transition={{ duration: 0.6, delay: 0.08, ease }}
+            className="flex flex-col justify-between rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm sm:p-9"
           >
-            <h3 className="font-display text-lg font-semibold text-ink-50">
-              Outside of code
-            </h3>
-            <p className="mt-2 text-sm text-ink-300">
-              The things that keep me curious and creative.
-            </p>
-            <ul className="mt-5 space-y-3">
-              {interests.map(({ Icon, label }) => (
-                <li
-                  key={label}
-                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2"
-                >
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-brand-400/30 to-accent-500/30 text-brand-200">
-                    <Icon size={16} />
-                  </span>
-                  <span className="text-sm text-ink-100">{label}</span>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h3 className="font-display text-lg font-bold text-[#09090b]">
+                Core Competencies
+              </h3>
+              <p className="mt-1 text-xs text-zinc-500">
+                Key principles I apply in every software project.
+              </p>
+              <ul className="mt-6 space-y-3.5">
+                {engineeringHighlights.map(({ Icon, title, desc }) => (
+                  <li
+                    key={title}
+                    className="flex items-start gap-3 rounded-2xl border border-zinc-100 bg-[#faf9f6] p-3.5 transition-colors hover:border-zinc-300"
+                  >
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 shadow-xs">
+                      <Icon size={16} />
+                    </span>
+                    <div>
+                      <span className="block text-xs font-bold text-[#09090b]">{title}</span>
+                      <span className="text-[11px] text-zinc-500 leading-snug">{desc}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-800">
+                Availability
+              </span>
+              <p className="mt-1 text-xs font-semibold text-emerald-950">
+                Available for internships, full-time engineering roles, &amp; production contracts.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

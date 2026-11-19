@@ -15,6 +15,168 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "freshstock-ai",
+    name: "FreshStock AI — Enterprise Inventory & Supply Chain",
+    shortDescription:
+      "A production client AI-powered inventory, stock management, and automated supply chain intelligence platform.",
+    description:
+      "FreshStock AI is an enterprise-grade stock and inventory management platform developed for a client (360DMMC). It provides real-time multi-warehouse inventory tracking, AI-driven demand forecasting, automated reorder triggers, and comprehensive executive analytics dashboards.",
+    image:
+      "https://i.ibb.co.com/N2R179DF/Screenshot-784.png",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Firebase",
+      "REST APIs",
+    ],
+    liveUrl: "https://freshstockai.com/",
+    clientRepoUrl: "https://freshstockai.com/",
+    features: [
+      "Real-time multi-warehouse inventory tracking and stock level auditing",
+      "AI-driven predictive demand forecasting and depletion alerts",
+      "Automated procurement and supplier purchase order generation",
+      "Executive analytics dashboard tracking turnover rates and supply efficiency",
+      "Role-based authorization for managers, auditors, and warehouse staff",
+    ],
+    challenges: [
+      "Handling atomic stock state mutations across high-frequency concurrent orders without race conditions.",
+      "Optimizing complex analytical aggregations for enterprise dashboards with sub-second response times.",
+    ],
+    improvements: [
+      "Mobile scanner support with instant QR and barcode inventory auditing.",
+      "Direct integration with third-party courier APIs for automated shipment dispatch.",
+      "Predictive supplier delivery lead-time analysis.",
+    ],
+    highlight: true,
+  },
+  {
+    slug: "pub-gradpath",
+    name: "PUB GradPath — Higher-Study Workspace",
+    shortDescription:
+      "An end-to-end higher-study discovery & application workspace featuring automated profile-to-opportunity fit matching, document vault (SOP/CV), and 1-on-1 mentorship consultation booking.",
+    description:
+      "PUB GradPath is a comprehensive higher-study discovery and application workspace (awarded Hackathon 🥈 Runner-Up). It empowers prospective graduate students to discover tailored international programs, evaluate eligibility with transparent gap analysis, manage application tasks, collaborate on SOP/CV documents with mentor feedback, and book 1-on-1 mentorship sessions with Google Meet.",
+    image: "https://i.ibb.co.com/jkKkmhfZ/Screenshot-780.png",
+    tech: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Prisma",
+      "PostgreSQL",
+      "TanStack Query",
+      "Zod",
+    ],
+    liveUrl: "https://shimanaperiye-frontend.vercel.app/",
+    clientRepoUrl: "https://github.com/ZisanUlHaque/shimana-periye-frontend",
+    features: [
+      "Deterministic profile-to-opportunity fit matching with transparent gap breakdown",
+      "Side-by-side program comparison matrix covering tuition, living costs, and deadlines",
+      "Collaborative document studio with version-controlled SOP/CV vault and mentor review annotations",
+      "1-on-1 mentor consultation booking system with calendar scheduling and Google Meet integration",
+      "Interactive application checklist, milestone tracker, and RFC 5545 iCal calendar export",
+    ],
+    challenges: [
+      "Architecting deterministic multi-criteria scoring algorithms that provide transparent, explainable fit percentages without black-box logic.",
+      "Designing a dual-role workspace supporting seamless, authenticated collaboration and review loops between applicants and mentors.",
+    ],
+    improvements: [
+      "AI-powered personalized SOP and essay review suggestions.",
+      "Automated university admissions deadline tracking via official academic APIs.",
+      "In-app peer applicant networking and real-time discussion channels.",
+    ],
+    highlight: true,
+  },
+  {
+    slug: "haqex",
+    name: "HAQEX — Courier & Logistics Platform Frontend",
+    shortDescription:
+      "A modern courier and logistics management platform with customer shipping workflows, courier operations, and role-based admin analytics.",
+    description:
+      "HAQEX is a modern courier and logistics management platform built with Next.js 16 and React 19. It provides a customer-facing shipping experience, courier operations workflows, and comprehensive admin dashboards for monitoring logistics activity, payments, analytics, hubs, and user operations.",
+    image:
+      "https://i.ibb.co.com/S7vppfHG/Screenshot-782.png",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "TanStack Query",
+      "Recharts",
+      "Google OAuth",
+      "Zod",
+    ],
+    liveUrl:
+      "https://haqex-three.vercel.app/",
+    clientRepoUrl: "https://github.com/ZisanUlHaque/HAQEX",
+    features: [
+      "Public marketing pages with real-time shipment tracking and live status management",
+      "Customer shipment creation, address validation, and payment processing flow",
+      "Courier operational dashboard with shipment history and delivery status updates",
+      "Admin analytics dashboard for monitoring logistics volume, revenue, hubs, and users",
+      "Authentication with Google OAuth integration and role-based access control",
+    ],
+    challenges: [
+      "Designing clean route groups and role-based layout architectures in Next.js App Router for customers, couriers, and administrators.",
+      "Managing reactive shipment lifecycle updates and synchronizing analytics visualizations using Recharts and TanStack Query.",
+    ],
+    improvements: [
+      "Real-time courier GPS location tracking with interactive map routes.",
+      "Automated SMS and push notifications for delivery milestones.",
+      "Barcode and QR code scanning for warehouse hub intake.",
+    ],
+    highlight: true,
+  },
+  {
+    slug: "rentnest",
+    name: "RentNest — Rental Property Marketplace",
+    shortDescription:
+      "A modern rental property marketplace connecting tenants and landlords with advanced search, Stripe payments, role-based dashboards, and analytics.",
+    description:
+      "RentNest is a full-stack rental property marketplace built with Next.js 16, Express, TypeScript, Prisma, and PostgreSQL. It streamlines property renting with advanced multi-parameter search, instant cost calculation, secure Stripe Checkout payments, and dedicated dashboards for Tenants, Landlords (with revenue charts), and Admins.",
+    image:
+      "https://i.ibb.co.com/tT8XvKBh/Screenshot-783.png",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "Stripe",
+      "Recharts",
+    ],
+    liveUrl: "https://rent-nest-frontend-psi.vercel.app",
+    clientRepoUrl: "https://github.com/ZisanUlHaque/RentNest",
+    features: [
+      "Dynamic property search and multi-filtering by location, price, type, and amenities",
+      "Interactive rental request modal with instant cost calculation and Stripe Checkout",
+      "Role-based dashboards for Tenants, Landlords, and Platform Administrators",
+      "Landlord analytics with revenue charts, occupancy rate gauges, and earnings tracking",
+      "Property listing CRUD, real-time availability toggle, and verified tenant review system",
+    ],
+    challenges: [
+      "Designing complex relational database schemas in Prisma with cascading constraints across properties, rentals, and payments.",
+      "Integrating Stripe webhooks and managing state synchronization across tenant booking and landlord approval lifecycles.",
+    ],
+    improvements: [
+      "Interactive map view with geolocation search for nearby rental listings.",
+      "In-app direct messaging and real-time chat between tenants and landlords.",
+      "Automated monthly rent invoicing and automated receipt generation.",
+    ],
+    highlight: true,
+  },
+  {
     slug: "zap-shift",
     name: "ZapShift — Logistics & Parcel Delivery Platform",
     shortDescription:

@@ -6,22 +6,17 @@ import {
   Linkedin,
   Twitter,
   Mail,
-  Heart,
-  ArrowUpRight,
+  Download,
 } from "lucide-react";
 import { profile } from "../data/profile";
 
-const socialLinks = [
-  { Icon: Github, href: profile.socials.github, label: "GitHub" },
-  { Icon: Linkedin, href: profile.socials.linkedin, label: "LinkedIn" },
-  { Icon: Twitter, href: profile.socials.twitter, label: "Twitter" },
-  { Icon: Mail, href: `mailto:${profile.email}`, label: "Email" },
-];
-
-const footerLinks = [
+const quickLinks = [
   { label: "Home", href: "#home" },
+  { label: "Featured Work", href: "#projects" },
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Tech Stack", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -29,119 +24,113 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/10 bg-gradient-to-t from-bg-900/80 to-bg-900/40">
-      <div className="mx-auto max-w-7xl px-4 py-16">
-        {/* Top Section */}
-        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-3">
-          {/* Brand */}
-          <div>
-            <Link href="#home" className="inline-flex items-center gap-2 group">
-              <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-accent-500 font-display text-sm font-bold text-bg-900 transition-transform group-hover:scale-110">
-                {profile.initials}
+    <footer className="border-t border-zinc-800 bg-[#09090b] py-14 text-zinc-400">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 lg:gap-12">
+          
+          {/* Brand & Summary */}
+          <div className="md:col-span-5 lg:col-span-5">
+            <Link href="#home" className="inline-flex items-center gap-3 group">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white font-mono text-xs font-bold text-[#09090b] transition-transform group-hover:scale-105">
+                &lt;Z/&gt;
               </span>
-              <div>
-                <div className="font-display text-base font-semibold text-ink-50">
-                  {profile.name}
-                </div>
-                <div className="text-xs text-ink-300">
-                  {profile.designation}
-                </div>
-              </div>
+              <span className="font-display text-base font-bold tracking-tight text-white">
+                {profile.name}
+              </span>
             </Link>
-            <p className="mt-4 text-sm text-ink-300 leading-relaxed max-w-xs">
-              Crafting premium digital experiences with modern web technologies.
-              Let's build something extraordinary together.
+
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
+              Full-Stack Software Engineer building scalable systems, Next.js web applications, and resilient backend microservices.
             </p>
+
+            <div className="mt-6 flex items-center gap-4">
+              <a
+                href={profile.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="text-zinc-400 transition-colors hover:text-white"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href={profile.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-zinc-400 transition-colors hover:text-blue-400"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href={profile.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className="text-zinc-400 transition-colors hover:text-white"
+              >
+                <Twitter size={18} />
+              </a>
+              <a
+                href={`mailto:${profile.email}`}
+                aria-label="Email"
+                className="text-zinc-400 transition-colors hover:text-white"
+              >
+                <Mail size={18} />
+              </a>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h3 className="font-display text-sm font-semibold text-ink-50 uppercase tracking-wider">
+          {/* Quick Links */}
+          <div className="md:col-span-4 lg:col-span-4">
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
               Navigation
             </h3>
-            <ul className="mt-4 space-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
+            <ul className="mt-4 grid grid-cols-2 gap-2.5 text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
                   <a
                     href={link.href}
-                    className="inline-flex items-center gap-1.5 text-sm text-ink-300 transition-colors hover:text-brand-300 group"
+                    className="transition-colors hover:text-blue-400"
                   >
                     {link.label}
-                    <ArrowUpRight
-                      size={12}
-                      className="opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-display text-sm font-semibold text-ink-50 uppercase tracking-wider">
-              Get in Touch
+          {/* Contact & Download Resume */}
+          <div className="md:col-span-3 lg:col-span-3">
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+              Direct Access
             </h3>
-            <div className="mt-4 space-y-2">
+            <p className="mt-4 text-xs leading-relaxed text-zinc-400">
+              Location: {profile.location}
+            </p>
+            <p className="mt-1 text-xs text-zinc-400">
+              Email: <a href={`mailto:${profile.email}`} className="text-zinc-200 hover:text-white">{profile.email}</a>
+            </p>
+
+            <div className="mt-6">
               <a
-                href={`mailto:${profile.email}`}
-                className="block text-sm text-ink-300 hover:text-brand-300 transition-colors"
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-5 py-2.5 text-xs font-bold text-white transition-all hover:border-zinc-500 hover:bg-zinc-800"
               >
-                {profile.email}
-              </a>
-              <a
-                href={`tel:${profile.phone.replace(/\s/g, "")}`}
-                className="block text-sm text-ink-300 hover:text-brand-300 transition-colors"
-              >
-                {profile.phone}
-              </a>
-              <a
-                href={`https://wa.me/${profile.whatsapp.replace(/\D/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm text-ink-300 hover:text-brand-300 transition-colors"
-              >
-                {profile.whatsapp}
+                <Download size={14} />
+                Download Resume
               </a>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/10" />
-
-        {/* Bottom Section */}
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <div className="text-center sm:text-left">
-            <p className="text-sm text-ink-300">
-               {profile.name} © {currentYear} {" "}
-            </p>
-            <p className="mt-1 text-xs text-ink-400">
-              Design. Develop. Deliver.
-            </p>
-            <p className="mt-1 text-xs text-ink-400">
-              Powered by Next.js & Tailwind CSS.{" "}
-            </p>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex items-center gap-2">
-            {socialLinks.map(({ Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink-200 transition-all hover:border-brand-400/50 hover:bg-brand-400/10 hover:text-brand-300"
-              >
-                <Icon
-                  size={18}
-                  className="transition-transform group-hover:scale-110"
-                />
-              </a>
-            ))}
-          </div>
+        {/* Bottom Bar */}
+        <div className="mt-12 border-t border-zinc-800/80 pt-8 text-center text-xs text-zinc-500 sm:flex sm:items-center sm:justify-between">
+          <p>© {currentYear} {profile.name}. All rights reserved.</p>
+          <p className="mt-2 sm:mt-0">
+            Engineered with Next.js, React, TypeScript, and Tailwind CSS.
+          </p>
         </div>
       </div>
     </footer>

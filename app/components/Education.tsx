@@ -7,42 +7,45 @@ import SectionHeading from "./SectionHeading";
 
 export default function Education() {
   return (
-    <section id="education" className="section-pad relative">
-      <div className="mx-auto max-w-7xl px-4">
+    <section id="education" className="section-pad relative border-b border-zinc-200/80 bg-zinc-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Education"
-          title="My academic journey."
-          subtitle="A short timeline of my studies and what I focused on."
+          eyebrow="Academic Background"
+          title="Education &amp; Foundations"
+          subtitle="Computer science coursework and fundamentals supporting my practical engineering skills."
         />
 
-        <ol className="relative mt-12 border-l border-white/10 pl-6">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
           {profile.education.map((ed, i) => (
-            <motion.li
+            <motion.div
               key={ed.degree}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="mb-8 last:mb-0"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm sm:p-8"
             >
-              <span className="absolute -left-[7px] flex h-3.5 w-3.5 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-accent-500 shadow-glow" />
-              <div className="glass rounded-2xl p-5">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-display text-lg font-semibold text-ink-50">
+              <div className="flex flex-wrap items-start justify-between gap-2 border-b border-zinc-100 pb-5">
+                <div>
+                  <h3 className="font-display text-xl font-bold text-[#09090b]">
                     {ed.degree}
                   </h3>
-                  <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-ink-200">
-                    {ed.period}
-                  </span>
+                  <div className="mt-1.5 flex items-center gap-2 font-semibold text-blue-600">
+                    <GraduationCap size={16} />
+                    <span>{ed.school}</span>
+                  </div>
                 </div>
-                <div className="mt-1 flex items-center gap-2 text-sm text-brand-300">
-                  <GraduationCap size={14} /> {ed.school}
-                </div>
-                <p className="mt-3 text-sm text-ink-200/85">{ed.details}</p>
+                <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3.5 py-1 font-mono text-xs font-semibold text-zinc-600">
+                  {ed.period}
+                </span>
               </div>
-            </motion.li>
+
+              <p className="mt-5 text-sm leading-relaxed text-zinc-600">
+                {ed.details}
+              </p>
+            </motion.div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

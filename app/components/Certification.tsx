@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink, Award, Calendar, Building2, ArrowUpRight } from "lucide-react";
+import { Award, Calendar, Building2, ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { certifications } from "../data/certifications";
 
@@ -10,15 +10,12 @@ export default function Certifications() {
   const visibleCerts = certifications.slice(0, 3);
 
   return (
-    <section id="certifications" className="section-pad relative">
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-72 bg-gradient-to-r from-brand-400/5 via-accent-500/5 to-transparent blur-3xl" />
-
+    <section id="certifications" className="section-pad relative border-b border-zinc-200/80 bg-[#faf9f6]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          align="center"
-          eyebrow="Certifications"
-          title="Credentials & Achievements"
-          subtitle="Industry-recognized certifications that validate my expertise."
+          eyebrow="Achievements &amp; Honors"
+          title="Credentials &amp; Contests"
+          subtitle="Hackathons, leadership programs, and competitive programming prelims that pushed my abilities."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -29,72 +26,67 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:border-white/20 hover:bg-white/[0.04]"
+              className="flex h-full flex-col justify-between rounded-3xl border border-zinc-200 bg-white p-7 shadow-sm transition-all hover:border-[#09090b] sm:p-8"
             >
-              <div className="flex items-start justify-between">
-
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-500/10">
-                  <Award size={18} className="text-brand-400 transition-transform duration-300 group-hover:scale-110" />
+              <div>
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                  <Award size={22} />
                 </div>
-              </div>
 
-              <div className="mt-6 flex flex-1 flex-col">
-                <h3 className="font-display text-xl font-semibold text-ink-50">
+                <h3 className="mt-6 font-display text-xl font-bold leading-snug text-[#09090b]">
                   {cert.title}
                 </h3>
 
-                <div className="mt-3 flex flex-col gap-2 text-sm text-ink-200/70">
+                <div className="mt-4 flex flex-col gap-2 text-xs font-semibold text-zinc-500">
                   <div className="flex items-center gap-2">
-                    <Building2 size={14} className="flex-shrink-0 text-ink-200/40" />
+                    <Building2 size={14} className="text-zinc-400" />
                     <span>{cert.issuer}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Calendar size={14} className="flex-shrink-0 text-ink-200/40" />
+                    <Calendar size={14} className="text-zinc-400" />
                     <span>{cert.date}</span>
                   </div>
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-2">
                   {cert.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-ink-300"
+                      className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
-
-                <a
-                  href={cert.credentialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 font-semibold text-brand-400 transition-all hover:gap-3"
-                >
-                  View Credential
-                  <ExternalLink size={16} />
-                </a>
               </div>
+
+              {cert.credentialUrl && (
+                <div className="mt-8 border-t border-zinc-100 pt-5">
+                  <a
+                    href={cert.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 transition-colors hover:text-blue-700"
+                  >
+                    View Credential
+                    <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              )}
             </motion.article>
           ))}
         </div>
 
         {certifications.length > 3 && (
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-12 text-center"
-          >
+          <div className="mt-12 text-center">
             <Link
               href="/credential"
-              className="inline-flex items-center gap-3 rounded-lg border border-brand-400/50 px-8 py-3 font-semibold text-brand-300 transition-all hover:bg-brand-400/10"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-7 py-3 text-sm font-bold text-[#09090b] transition-all hover:border-[#09090b]"
             >
-              View All Credential
-              <ArrowUpRight size={18} />
+              View All Credentials &amp; Certifications
+              <ArrowUpRight size={16} />
             </Link>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>
