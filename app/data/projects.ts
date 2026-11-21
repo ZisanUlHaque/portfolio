@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       "FreshStock AI is an enterprise-grade stock and inventory management platform developed for a client (360DMMC). It provides real-time multi-warehouse inventory tracking, AI-driven demand forecasting, automated reorder triggers, and comprehensive executive analytics dashboards.",
     image:
-      "https://i.ibb.co.com/N2R179DF/Screenshot-784.png",
+      "https://res.cloudinary.com/dgt7hcpf2/image/upload/v1795272544/Screenshot_784.png",
     tech: [
       "Next.js",
       "React",
@@ -61,7 +61,7 @@ export const projects: Project[] = [
       "An end-to-end higher-study discovery & application workspace featuring automated profile-to-opportunity fit matching, document vault (SOP/CV), and 1-on-1 mentorship consultation booking.",
     description:
       "PUB GradPath is a comprehensive higher-study discovery and application workspace (awarded Hackathon 🥈 Runner-Up). It empowers prospective graduate students to discover tailored international programs, evaluate eligibility with transparent gap analysis, manage application tasks, collaborate on SOP/CV documents with mentor feedback, and book 1-on-1 mentorship sessions with Google Meet.",
-    image: "https://i.ibb.co.com/jkKkmhfZ/Screenshot-780.png",
+    image: "https://res.cloudinary.com/dgt7hcpf2/image/upload/v1795272558/Screenshot_780.png",
     tech: [
       "Next.js 15",
       "React 19",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     description:
       "HAQEX is a modern courier and logistics management platform built with Next.js 16 and React 19. It provides a customer-facing shipping experience, courier operations workflows, and comprehensive admin dashboards for monitoring logistics activity, payments, analytics, hubs, and user operations.",
     image:
-      "https://i.ibb.co.com/S7vppfHG/Screenshot-782.png",
+      "https://res.cloudinary.com/dgt7hcpf2/image/upload/v1795272575/Screenshot_782.png",
     tech: [
       "Next.js 16",
       "React 19",
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     description:
       "RentNest is a full-stack rental property marketplace built with Next.js 16, Express, TypeScript, Prisma, and PostgreSQL. It streamlines property renting with advanced multi-parameter search, instant cost calculation, secure Stripe Checkout payments, and dedicated dashboards for Tenants, Landlords (with revenue charts), and Admins.",
     image:
-      "https://i.ibb.co.com/tT8XvKBh/Screenshot-783.png",
+      "https://res.cloudinary.com/dgt7hcpf2/image/upload/v1795272568/Screenshot_783.png",
     tech: [
       "Next.js 16",
       "React 19",
